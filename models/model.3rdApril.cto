@@ -1,0 +1,250 @@
+namespace org.acme.model.productpedigree
+
+participant LedgerKeeper identified by ledgerKeeperId {
+  o String ledgerKeeperId
+  --> ProduceLedger produceLedgerId
+  --> ProductLedger productLedgerId
+}
+
+asset ProductLedgerEntry identified by productLedgerEntryId {
+  o String productLedgerEntryId
+  o String quantity
+  --> Product batchId
+  --> Consumer consumerId
+  --> RetailStore retailStoreId
+  --> Manufacturer manufacturerId
+  o DateTime transactionDate
+}
+
+asset ProduceLedgerEntry identified by produceLedgerEntryId {
+  o String produceLedgerEntryId
+  o String quantity
+  --> Produce GRId
+  --> Farmer farmerId
+  --> Manufacturer manufacturerId
+  o DateTime transactionDate
+}
+
+
+asset ProduceLedger identified by produceLedgerId {
+  o String produceLedgerId
+  o String[] produceLedgerEntryIndexArray
+  o ProduceLedgerEntry[] produceLedgerEntries 
+}
+
+asset ProductLedger identified by productLedgerId {
+  o String productLedgerId
+  o String[] productLedgerEntryIndexArray
+  o ProductLedgerEntry[] productLedgerEntries  
+}
+
+participant Farmer identified by farmerId {
+  o String farmerId
+  o ProduceType produceType
+  o String county optional 
+  o String state optional
+  o String country optional
+}
+
+participant Manufacturer identified by manufacturerId {
+  o String manufacturerId
+  o String name
+  o String county
+  o String state
+  o String country
+  o String journeyPath optional
+  --> QualityCheckInformation qualityCheckInformation optional
+}
+
+participant Retailer identified by retailerId {
+  o String retailerId
+}
+
+participant RetailStore identified by retailStoreId {
+  o String retailStoreId
+  --> Retailer retailerId  
+  o String name
+  o String county
+  o String state
+  o String country
+  o String journeyPath optional
+  --> QualityCheckInformation qualityCheckInformation optional
+}
+
+participant Consumer identified by consumerId {
+  o String consumerId
+}
+
+
+asset Produce identified by GRId {
+  o String GRId
+  o ProduceType produceType
+  --> Farmer farmerId
+  o String quantity
+  o Boolean organic optional
+  o Boolean vegan optional
+  o String dateOfProduce
+  o String productQPedigreeStatement optional
+  o String journeyPath   optional  
+ }
+
+enum ProduceType {
+  o Milk
+  o Wheat
+  o Oats
+}
+
+enum ProductType {
+  o BAKERY
+  o CEREAL
+  o GENERAL
+}
+
+enum SKU {
+  o WHEAT_BREAD_1
+  o WHEAT_BREAD_2
+  o WHEAT_BREAD_3
+  o OATS_CEREAL_1
+  o OATS_CEREAL_2
+  o OATS_CEREAL_3
+  o GENERAL
+}
+
+enum QualityCheckType {
+  o ORGANIC
+  o VEGAN
+  o IPM
+  o FDA
+  o GENERAL
+  o OTHERS
+}
+
+enum QualityCheckOf {
+  o PRODUCE
+  o PRODUCT
+  o MANUFACTURER
+  o MANU_PROCESS
+  o COOPERATIVE
+  o GENERAL
+  o OTHERS
+}
+
+
+asset Product identified by batchId {
+  o String batchId
+  o ProductType productType
+  o SKU sku
+  o String name
+  o Boolean organic optional
+  o Boolean vegan optional
+  o String dateOfManuf
+  o String quantityAuditResults optional
+  o String journeyPath optional
+  o String productQPedigreeStatement optional
+  --> QualityCheckInformation qualityCheckInformation optional
+  o Integer ing1Qnty
+  o Integer ing2Qnty
+  o Integer quantity
+  --> Manufacturer manufacturerId
+  --> Produce GRId1
+  --> Produce GRId2
+  --> Recipe recipeId
+ }
+
+asset Recipe identified by recipeId {
+  o String recipeId
+  o SKU sku
+  o String name
+  o Integer ing1Qnty
+  o Integer ing2Qnty
+  --> Produce GRId1
+  --> Produce GRId2
+ }
+
+
+participant QualityStandardCertifier identified by qcertifierid {
+  o String qcertifierid
+  o String name
+  o String state
+  o String country 
+}
+
+asset QualityCheckInformation identified by qualitycheckid {
+  o String qualitycheckid 
+  o String qcertifierid
+  o String assetofidorparicpantbeingchecked
+  o Boolean qualitycheckpassed
+  o QualityCheckType qualitychecktype optional
+  o QualityCheckOf qualitycheckof optional
+  o String name optional
+  o String state optional
+  o String country optional
+}
+
+
+transaction IsProductOrganic {
+  --> Product prod
+}
+
+transaction IsProductVegan {
+  --> Product prod
+}
+
+transaction IsProductInState {
+  --> Product prod
+}
+
+transaction IsProductInCountry {
+  --> Product prod
+}
+
+transaction ChangeProduce {
+  o String produceName
+  --> Produce ingredient
+ }
+
+transaction DoProduct {
+  --> Product prod
+    o String dummy
+}
+
+transaction ListProductIngredientLocations {
+  --> Product prod
+}
+
+transaction TrackProductQualityPedigree {
+  --> Product prod
+}
+
+transaction ReconcilePPQuantities {
+  --> Product prod
+}
+
+transaction TraverseBackProductPedigreeJourney {
+  --> Product prod
+}
+
+transaction FarmerSellsProduceToManufacturer {
+  --> Farmer farmerId
+  --> Manufacturer manufacturerId
+  o String GRId
+  o Integer quantity
+}
+
+transaction ManufacturerSellsProductToRetailer {
+  --> Manufacturer manufacturerId
+  --> RetailStore retailStoreId
+  o String batchId
+  o Integer quantity
+}
+
+transaction RetailerSellsProductToConsumer {
+  --> RetailStore retailStoreId
+  --> Consumer consumerId
+  o String batchId
+  o Integer quantity
+}
+
+
+
+
