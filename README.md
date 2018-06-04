@@ -1,1 +1,5 @@
-This is the readme file for the Business Network Definition created in Playground
+# Hyperledger Fabric Provenance POC CI/CD Process
+
+All the CI/CD configuration is prepared in Jenkins pipleline. 
+
+![ConsoleOutPut](console.png)
