@@ -1,14 +1,29 @@
+
+
+## Features
+
+Hyperledger Fabric is a permissioned blockchain infrastructure, originally contributed by IBM and Digital Asset.
+
+The primary difference between a permissioned blockchain network and an unpermissioned blockchain network is whether the participants in the network have an ability to restrict who can participate in the consensus mechanism of the blockchain’s network.
+
+A blockchain creates trust, traceability, and immutability through a peer-to-peer network. All transactions in the network, such as payments or event tracking in a supply chain, are confirmed by participants in the network. Thus, no central authority alone controls the validity of these events. These acknowledgments given by the participants lead to a consensus in the network, with which the data on the blockchain is continually persisted. So the majority of the participants decide whether a transaction is valid, instead of a single player. 
+It is a more resilient, extensible and scalable blockchain platform suitable for enterprises.
+
+## Screenshot
+
+![ConsoleOutPut](images/screenshot-1.png)
+
 # Hyperledger Fabric Provenance POC CI/CD Process
 
 All the CI/CD configuration is prepared in Jenkins pipleline. 
 
 ## Jenkins Setup 
 
-Before we begin integrating Hyperledger Fabric Pipeline setup, we need to install three plugins:
+Before we begin integrating Hyperledger Fabric prjoect pipeline, we need to install three plugins:
 
-1.) Node.js plugin, for node.js installations under jenkins user.
-2.) Gihub plugin, for integrating with Github.
-3.) Pipeline plugin, for congiguring pipeline stages.
+1.) Node.js plugin, for node.js installations under jenkins user.  <br/>
+2.) Gihub plugin, for integrating with Github.  <br/>
+3.) Pipeline plugin, for congiguring pipeline stages.  <br/>
 
 Note: After the plugins installation, we have to add new node.js installations in jenkins global tool configuration section.
 
