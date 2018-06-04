@@ -2,7 +2,19 @@
 
 All the CI/CD configuration is prepared in Jenkins pipleline. 
 
-![ConsoleOutPut](images/console.png)
+## Jenkins Setup 
+
+Before we begin integrating Hyperledger Fabric Pipeline setup, we need to install three plugins:
+
+1.) Node.js plugin, for node.js installations under jenkins user.
+2.) Gihub plugin, for integrating with Github.
+3.) Pipeline plugin, for congiguring pipeline stages.
+
+Note: After the plugins installation, we have to add new node.js installations in jenkins global tool configuration section.
+
+![ConsoleOutPut](images/Jenkins-setup-1.png)
+
+![ConsoleOutPut](images/Jenkins-setup-2.png)
 
 ## Environment Setup
 
@@ -41,3 +53,5 @@ Before a business network definition can be deployed it must be packaged into a 
 ## Deploy Business Networks
 
 Once the business network archive file has been created it can be deployed to a runtime using the composer runtime install command followed by a composer network start command.
+
+![ConsoleOutPut](images/console.png)
