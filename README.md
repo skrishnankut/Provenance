@@ -61,10 +61,13 @@ This step creates a local Hyperledger Fabric runtime to deploy business network 
 	cd ~/fabric-dev-servers
 	./downloadFabric.sh
 	
-## Build
+## Build BNA
 	
 Before a business network definition can be deployed it must be packaged into a Business Network Archive (.bna) file. The composer archive create command is used to create a business network archive file from a business network definition folder on disk.
-	
+
+## Start Fabric Instance
+ 
+ 
 ## Deploy Business Networks
 
 Once the business network archive file has been created it can be deployed to a runtime using the composer runtime install command followed by a composer network start command.
