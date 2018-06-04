@@ -9,7 +9,7 @@ The primary difference between a permissioned blockchain network and an unpermis
 A blockchain creates trust, traceability, and immutability through a peer-to-peer network. All transactions in the network, such as payments or event tracking in a supply chain, are confirmed by participants in the network. Thus, no central authority alone controls the validity of these events. These acknowledgments given by the participants lead to a consensus in the network, with which the data on the blockchain is continually persisted. So the majority of the participants decide whether a transaction is valid, instead of a single player. 
 It is a more resilient, extensible and scalable blockchain platform suitable for enterprises.
 
-## Screenshot
+## Screenshots
 
 ![ConsoleOutPut](images/screenshot-1.png)
 
