@@ -2,4 +2,4 @@
 
 All the CI/CD configuration is prepared in Jenkins pipleline. 
 
-![ConsoleOutPut](console.png)
+![ConsoleOutPut](images/console.png)
