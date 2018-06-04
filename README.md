@@ -24,16 +24,20 @@ There are a few useful CLI tools for Blockchain Platform developers.
 * composer-cli : Utility which contains all the essential operations.
 * composer-rest-server : Utility for running a REST Server on your machine to expose your business networks as RESTful APIs.
 
-## Step 3: Install Hyperledger Fabric
+### Step 3: Install Hyperledger Fabric
 
-This step creates a local Hyperledger Fabric runtime to deploy business network application. In a directory of your choice, get the .tar.gz file that contains the tools to install Hyperledger Fabric:
+This step creates a local Hyperledger Fabric runtime to deploy business network application. 
 
 	mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers
 	curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
 	tar -xvf fabric-dev-servers.tar.gz
-
-Use the scripts downloaded and extracted to download a local Hyperledger Fabric runtime:
-
 	cd ~/fabric-dev-servers
 	./downloadFabric.sh
 	
+## Build
+	
+Before a business network definition can be deployed it must be packaged into a Business Network Archive (.bna) file. The composer archive create command is used to create a business network archive file from a business network definition folder on disk.
+	
+## Deploy Business Networks
+
+Once the business network archive file has been created it can be deployed to a runtime using the composer runtime install command followed by a composer network start command.
