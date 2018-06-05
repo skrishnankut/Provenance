@@ -54,7 +54,7 @@ There are a few useful CLI tools for Blockchain Platform developers.
 
 Note : The Jenkins GitHub plugin provides support for receiving push notifications from Github post-commit hooks and using those notifications to trigger jobs within Jenkins. It can set-up the post-commit hooks in GitHub.
 
-## Static Code Analysis <<TBD>>
+## Static Code Analysis <"TBD">
 
 ### Step 3: Install Hyperledger Fabric
 
@@ -73,11 +73,12 @@ Before a business network definition can be deployed it must be packaged into a 
 
 ## Start Fabric Instance
  
+Launch the network using the startFabric.sh shell script. This command will spin up various Fabric entities and launch a smart contract container for chaincode written in Golang or node.js.
  
 ## Deploy Business Networks
 
 Once the business network archive file has been created it can be deployed to a runtime using the composer runtime install command followed by a composer network start command.
 
-## Unit Testing <<TBD>>
+## Unit Testing <"TBD">
 
 ![ConsoleOutPut](images/console.png)
