@@ -77,8 +77,12 @@ Launch the network using the startFabric.sh shell script. This command will spin
  
 ## Deploy Business Networks
 
-Once the business network archive file has been created it can be deployed to a runtime using the composer runtime install command followed by a composer network start command.
+Once the business network archive file has been created it can be deployed to a runtime using the composer runtime install command followed by a composer network start command. In Hyperledger Fabric , peers enforce the concepts of administrators and members. Administrators have permission to install Hyperledger Fabric chaincode for a new business network onto peers. Members do not have permission to install chaincode. In order to deploy a business network to a set of peers, you must provide an identity that has administrative rights to all of those peers.
+
+To make that identity and its certificates available, you must create a Peer Admin business network card using the certificate and private key associated with the peer admin identity. The peer administrator for this network is called PeerAdmin, and the identity is automatically imported for you when you use the sample scripts for starting the network. 
 
 ## Unit Testing <"TBD">
 
 ![ConsoleOutPut](images/console.png)
+
+## Pipeline Script
